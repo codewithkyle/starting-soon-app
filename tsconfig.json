@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "ES2019",
+        "lib": [
+            "DOM",
+            "ESNext"
+        ],
+        "module": "ES2020",
+        "outDir": "./public/js",
+        "allowJs": true,
+        "checkJs": false
+    },
+    "include": [
+        "./src",
+        "./web_modules"
+    ]
+}
