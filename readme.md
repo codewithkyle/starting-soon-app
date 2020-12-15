@@ -1,0 +1,30 @@
+## Roadmap
+
+- [x] Background
+    - [x] Light
+    - [x] Dark
+    - [x] Custom color
+    - [x] Image
+    - [x] YouTube Video
+    - [x] Tint
+- [ ] Copy
+    - [ ] Heading
+        - [ ] Visibility
+        - [ ] Font color picker
+        - [ ] Font size
+    - [ ] Subheading
+        - [ ] Visibility
+        - [ ] Font color picker
+        - [ ] Font size
+- [ ] Timer
+    - [ ] Visibility
+    - [ ] Font color picker
+    - [ ] Font size
+    - [ ] Start/Stop
+- Sponsors
+    - [] Label
+        - [ ] Visibility
+        - [ ] Font color picker
+        - [ ] Font size
+        - [ ] Start/Stop
+    - [ ] Logos

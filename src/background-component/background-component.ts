@@ -1,19 +1,27 @@
-export default class BackgroundComponent extends HTMLElement{
+export class BackgroundComponent extends HTMLElement{
     private image:HTMLImageElement;
     private video:HTMLElement;
+    private tint:HTMLElement;
 
     constructor(){
         super();
         this.image = null;
         this.video = null;
+        this.tint = null;
     }
 
     private reset(){
         if (this.image){
             this.image.remove();
+            this.image = null;
         }
         if (this.video){
             this.video.remove();
+            this.video = null;
+        }
+        if (this.tint){
+            this.tint.remove();
+            this.tint = null;
         }
     }
 
@@ -65,5 +73,25 @@ export default class BackgroundComponent extends HTMLElement{
                 "onStateChange": this.handlePlayerChange.bind(this)
               }
         });
+    }
+
+    public setTint(hex:string):void{
+        if(!this.tint){
+            this.tint = document.createElement("div");
+            this.tint.className = "tint";
+            this.tint.style.opacity = "0";
+            this.appendChild(this.tint);
+        }
+        this.tint.style.backgroundColor = hex;
+    }
+
+    public setTintOpacity(value:string):void{
+        if(!this.tint){
+            this.tint = document.createElement("div");
+            this.tint.className = "tint";
+            this.tint.style.backgroundColor = "#000";
+            this.appendChild(this.tint);
+        }
+        this.tint.style.opacity = value;
     }
 }

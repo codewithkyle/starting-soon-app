@@ -1,9 +1,15 @@
+import { BackgroundComponent } from "./background-component/background-component";
+customElements.define("background-component", BackgroundComponent);
+
+import { EditorDrawer } from "./editor-drawer/editor-drawer";
+customElements.define("editor-drawer", EditorDrawer);
+
 class Application{
     private heading:HTMLElement;
     private subheading:HTMLElement;
     private sponsorCarousel:HTMLElement;
-    private editor:HTMLElement;
-    private background:HTMLElement;
+    private editor:EditorDrawer;
+    private background:BackgroundComponent;
 
     constructor(){
         this.heading = document.body.querySelector(".js-heading");
@@ -14,23 +20,28 @@ class Application{
     }
 
     public toggleEditor(){
-        // @ts-expect-error
         this.editor.toggle();
     }
 
     public loadBackgroundImage(url:string){
-        // @ts-expect-error
         this.background.loadImage(url);
     }
 
     public setBackgroundColor(hex:string){
-        // @ts-expect-error
         this.background.setColor(hex);
     }
 
-    public loadBackgroundVideo(videoID:string){
-        // @ts-expect-error
+    public loadBackgroundVideo(url:string){
+        const videoID = url.trim().replace(/.*\?v\=/, "").replace(/\&.*/, "");
         this.background.loadVideo(videoID);
+    }
+
+    public setTintColor(hex:string){
+        this.background.setTint(hex);
+    }
+
+    public setTintOpacity(value:string){
+        this.background.setTintOpacity(value);
     }
 }
 
@@ -40,5 +51,7 @@ const toggleEditor:Function = app.toggleEditor.bind(app);
 const loadBackgroundImage:(url:string)=>void = app.loadBackgroundImage.bind(app);
 const setBackgroundColor:(hex:string)=>void = app.setBackgroundColor.bind(app);
 const loadBackgroundVideo:(videoID:string)=>void = app.loadBackgroundVideo.bind(app);
+const setTintColor:(hex:string)=>void = app.setTintColor.bind(app);
+const setTintOpacity:(value:string)=>void = app.setTintOpacity.bind(app);
 
-export { toggleEditor, loadBackgroundImage, setBackgroundColor, loadBackgroundVideo };
+export { toggleEditor, loadBackgroundImage, setBackgroundColor, loadBackgroundVideo, setTintColor, setTintOpacity };

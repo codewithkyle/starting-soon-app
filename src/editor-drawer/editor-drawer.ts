@@ -1,4 +1,4 @@
-export default class EditorDrawer extends HTMLElement{
+export class EditorDrawer extends HTMLElement{
     public toggle(){
         if (this.getAttribute("state") === "closed"){
             this.setAttribute("state", "open");
