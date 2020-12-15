@@ -24,7 +24,8 @@ copy-editor{
         border-radius: 0 0.25rem 0.25rem 0;
         overflow: hidden;
 
-        button{
+        button,
+        label{
             width: 36px;
             height: 36px;
             display: flex;
@@ -33,6 +34,7 @@ copy-editor{
             color: var(--grey-700);
             transition: all 150ms var(--ease-in-out);
             border-bottom: 1px solid var(--grey-300);
+            cursor: pointer;
 
             &.visibility{
                 &[state="visible"]{

@@ -5,6 +5,7 @@ type State = {
     visibility: boolean;
     bold: boolean;
     fontSize: number;
+    color: string;
 };
 
 export default class CopyEditor extends Component<State>{
@@ -13,6 +14,8 @@ export default class CopyEditor extends Component<State>{
     private boldButton:HTMLButtonElement;
     private increaseButton:HTMLButtonElement;
     private decreaseButton:HTMLButtonElement;
+    private colorInput:HTMLInputElement;
+    private colorInputIcon:HTMLElement;
 
     constructor(){
         super();
@@ -22,11 +25,14 @@ export default class CopyEditor extends Component<State>{
         this.boldButton = this.querySelector(".js-toggle-bold-button");
         this.increaseButton = this.querySelector(".js-enlarge-text-button");
         this.decreaseButton = this.querySelector(".js-shrink-text-button");
+        this.colorInput = this.querySelector(".js-color-input");
+        this.colorInputIcon = this.querySelector(".js-color-input-icon")
 
         this.state = {
             visibility: false,
             bold: false,
             fontSize: 1,
+            color: "#000000",
         };
     }
 
@@ -63,18 +69,25 @@ export default class CopyEditor extends Component<State>{
         this.setState(updatedState);
     }
 
+    private updateColor:EventListener = () => {
+        this.setState({color: this.colorInput.value});
+        this.colorInputIcon.style.backgroundColor = this.colorInput.value;
+    }
+
     connected(){
         this.visibilityButton.addEventListener("click", this.toggleVisibility);
         this.textarea.addEventListener("keyup", this.updateText);
         this.boldButton.addEventListener("click", this.toggleBold);
         this.increaseButton.addEventListener("click", this.increaseFontSize);
         this.decreaseButton.addEventListener("click", this.decreaseFontSize);
+        this.colorInput.addEventListener("change", this.updateColor);
     }
 
     updated(){
         updateElementStyle(this.dataset.lookup, "display", this.state.visibility ? "block" : "none");
         updateElementStyle(this.dataset.lookup, "fontWeight", this.state.bold ? "bold" : "400");
         updateElementStyle(this.dataset.lookup, "fontSize", `${this.state.fontSize}rem`);
+        updateElementStyle(this.dataset.lookup, "color", this.state.color);
     }
 
     render(){

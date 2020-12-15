@@ -14,6 +14,7 @@ class Sleeper{
 
     private captureInteraction:EventListener = ()=>{
         document.documentElement.setAttribute("state", "awake");
+        document.title = "✏️ Editor - Starting Soon";
         this.countdown = 10;
     }
 
@@ -24,6 +25,7 @@ class Sleeper{
         this.countdown -= deltaTime;
         if (this.countdown <= 0 && document.documentElement.getAttribute("state") === "awake"){
             document.documentElement.setAttribute("state", "asleep");
+            document.title = "🔴 Live - Starting Soon";
         }
         window.requestAnimationFrame(this.loop.bind(this));
     }

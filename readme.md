@@ -8,17 +8,17 @@
     - [x] YouTube Video
     - [x] Tint
     - [x] Blur
-- [ ] Copy
+- [x] Copy
     - [ ] Heading
         - [x] Visibility
-        - [ ] Font color picker
+        - [x] Font color picker
         - [x] Font size up/down
         - [x] Font bold
-    - [ ] Subheading
-        - [ ] Visibility
-        - [ ] Font color picker
-        - [ ] Font size up/down
-        - [ ] Font bold
+    - [x] Subheading
+        - [x] Visibility
+        - [x] Font color picker
+        - [x] Font size up/down
+        - [x] Font bold
 - [ ] Timer
     - [ ] Visibility
     - [ ] Font color picker
