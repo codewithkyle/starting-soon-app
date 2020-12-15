@@ -9,7 +9,7 @@
     - [x] Tint
     - [x] Blur
 - [x] Copy
-    - [ ] Heading
+    - [x] Heading
         - [x] Visibility
         - [x] Font color picker
         - [x] Font size up/down
