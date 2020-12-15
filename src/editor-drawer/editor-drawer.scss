@@ -6,7 +6,8 @@ editor-drawer{
     right: 0;
     padding: 1rem;
     background-color: var(--white);
-    overflow-x: scroll;
+    overflow-y: scroll;
+    overscroll-behavior: contain;
     box-shadow: var(--shadow-lg);
     opacity: 0;
     visibility: hidden;

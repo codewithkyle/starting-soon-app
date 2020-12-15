@@ -7,6 +7,7 @@ class Sleeper{
         window.addEventListener("mousemove", this.captureInteraction, {passive: true});
         window.addEventListener("touchstart", this.captureInteraction, {passive: true});
         window.addEventListener("scroll", this.captureInteraction, {passive: true});
+        window.addEventListener("keyup", this.captureInteraction, {passive: true});
         this.time = performance.now();
         this.loop();
     }

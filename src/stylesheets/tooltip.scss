@@ -12,7 +12,6 @@ tool-tip {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     pointer-events: none;
     transform-origin: center;
-    text-transform: uppercase;
 
     /* The visible class is applied once the tool-tip element as been appended to the body & positioned correctly */
     &.visible {

@@ -10,22 +10,26 @@
     - [x] Blur
 - [ ] Copy
     - [ ] Heading
-        - [ ] Visibility
+        - [x] Visibility
         - [ ] Font color picker
-        - [ ] Font size
+        - [x] Font size up/down
+        - [x] Font bold
     - [ ] Subheading
         - [ ] Visibility
         - [ ] Font color picker
-        - [ ] Font size
+        - [ ] Font size up/down
+        - [ ] Font bold
 - [ ] Timer
     - [ ] Visibility
     - [ ] Font color picker
-    - [ ] Font size
+    - [ ] Font size up/down
+    - [ ] Font bold
     - [ ] Start/Stop
 - Sponsors
     - [] Label
         - [ ] Visibility
         - [ ] Font color picker
-        - [ ] Font size
+        - [ ] Font size up/down
+        - [ ] Font bold
         - [ ] Start/Stop
     - [ ] Logos

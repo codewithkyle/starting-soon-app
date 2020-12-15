@@ -1,0 +1,124 @@
+copy-editor{
+    position: relative;
+    display: block;
+    width: 100%;
+
+    textarea{
+        padding: 0.5rem 0.75rem !important;
+        height: 180px !important;
+
+        &:focus{
+            z-index: 10;
+        }
+    }
+
+    copy-editor-actions{
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        height: calc(100% - 34px - 1rem);
+        width: 36px;
+        background-color: var(--white);
+        border: 1px solid var(--grey-300);
+        border-left-width: 0;
+        border-radius: 0 0.25rem 0.25rem 0;
+        overflow: hidden;
+
+        button{
+            width: 36px;
+            height: 36px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--grey-700);
+            transition: all 150ms var(--ease-in-out);
+            border-bottom: 1px solid var(--grey-300);
+
+            &.visibility{
+                &[state="visible"]{
+                    .visible{
+                        opacity: 1;
+                        visibility: visible;
+                    }
+
+                    .hidden{
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+                }
+                
+                .visible{
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                .hidden{
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            &.weight{
+                &[state="bold"]{
+                    .bold{
+                        opacity: 1;
+                        visibility: visible;
+                    }
+    
+                    .regular{
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+                }
+
+                .bold{
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                .regular{
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            &.color{
+
+                &:hover,
+                &:focus{
+                    i{
+                        transform: scale(1.15);
+                    }
+                }
+                &:active{
+                    i{
+                        transform: scale(1);
+                    }
+                }
+
+                i{
+                    width: 12px;
+                    height: 12px;
+                    box-shadow: inset 0 0 3px rgba(0,0,0,0.15);
+                    border-radius: 50%;
+                    transition: all 150ms var(--ease-in-out);
+                }
+            }
+
+            &:hover,
+            &:focus{
+                color: var(--primary-700);
+            }
+
+            &:active{
+                color: var(--primary-800);
+            }
+            
+            svg{
+                width: 18px;
+                height: 18px;
+                position: absolute;
+            }
+        }
+    }
+}
