@@ -23,9 +23,19 @@ class Sleeper{
         const deltaTime = (newTime - this.time) / 1000;
         this.time = newTime;
         this.countdown -= deltaTime;
-        if (this.countdown <= 0 && document.documentElement.getAttribute("state") === "awake"){
-            document.documentElement.setAttribute("state", "asleep");
-            document.title = "🔴 Live - Starting Soon";
+        if (this.countdown <= 0){
+            if (document.documentElement.getAttribute("state") === "awake"){
+                document.documentElement.setAttribute("state", "asleep");
+                document.title = "🔴 Live";
+                this.countdown = 1;
+            } else {
+                if (document.title === "🔴 Live"){
+                    document.title = "⚫ Live";
+                } else {
+                    document.title = "🔴 Live";
+                }
+                this.countdown = 1;
+            }
         }
         window.requestAnimationFrame(this.loop.bind(this));
     }
