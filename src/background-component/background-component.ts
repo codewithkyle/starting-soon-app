@@ -94,4 +94,21 @@ export class BackgroundComponent extends HTMLElement{
         }
         this.tint.style.opacity = value;
     }
+
+    public setBlur(value:string):void{
+        const int = parseInt(value);
+        let el = null;
+        if (this.video){
+            el = this.video;
+        } else if (this.image){
+            el = this.image;
+        }
+        if (el){
+            el.style.filter = `blur(${int}px)`;
+            el.style.width = `calc(100% + ${int * 4}px)`;
+            el.style.height = `calc(100% + ${int * 4}px)`;
+            el.style.top = `-${int * 2}px`;
+            el.style.left = `-${int * 2}px`;
+        }
+    }
 }

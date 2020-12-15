@@ -1,7 +1,7 @@
 import { Component } from "djinnjs/component";
 import { fetchCSS } from "djinnjs/fetch";
 import { html, render } from "lit-html";
-import { setBackgroundColor, loadBackgroundVideo, setTintColor, setTintOpacity } from "../../app";
+import { setBackgroundColor, loadBackgroundVideo, setTintColor, setTintOpacity, setBackgroundBlur } from "../../app";
 
 import { BackgroundImageButton } from "./background-image-button/background-image-button";
 customElements.define("background-image-button", BackgroundImageButton);
@@ -62,8 +62,11 @@ export default class BackgroundSettings extends Component<State>{
     }
 
     private updateTintOpacity(value:string){
-        console.log(value);
         setTintOpacity(value);
+    }
+
+    private updateBlur(value:string){
+        setBackgroundBlur(value);
     }
 
     private renderTintComponent(){
@@ -83,6 +86,15 @@ export default class BackgroundSettings extends Component<State>{
         `;
     }
 
+    private renderBlurComponent(){
+        return html`
+            <range-component class="mb-1">
+                <label for="background-blur">Blur</label>
+                <input @change=${e => this.updateBlur(e.currentTarget.value)} type="range" id="background-blur" min="0" max="32" step="1" value="0">
+            </range-component>
+        `;
+    }
+
     connected(){
         this.select.addEventListener("change", this.switchBackground);
     }
@@ -97,6 +109,7 @@ export default class BackgroundSettings extends Component<State>{
                         <input placeholder="https://www.youtube.com/watch?v=Kljpa--hbz4" @input=${e => this.handleYoutubeVideo(e.currentTarget.value)} type="url" id="youtube-video-url" name="youtube-video-url" required />
                     </url-component>
                     ${this.renderTintComponent()}
+                    ${this.renderBlurComponent()}
                 `;
                 break;
             case "custom":
@@ -121,6 +134,7 @@ export default class BackgroundSettings extends Component<State>{
                         </label>
                     </background-image-button>
                     ${this.renderTintComponent()}
+                    ${this.renderBlurComponent()}
                 `;
                 break;
             default:

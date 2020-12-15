@@ -43,6 +43,10 @@ class Application{
     public setTintOpacity(value:string){
         this.background.setTintOpacity(value);
     }
+
+    public setBackgroundBlur(value:string){
+        this.background.setBlur(value);
+    }
 }
 
 const app = new Application();
@@ -53,5 +57,6 @@ const setBackgroundColor:(hex:string)=>void = app.setBackgroundColor.bind(app);
 const loadBackgroundVideo:(videoID:string)=>void = app.loadBackgroundVideo.bind(app);
 const setTintColor:(hex:string)=>void = app.setTintColor.bind(app);
 const setTintOpacity:(value:string)=>void = app.setTintOpacity.bind(app);
+const setBackgroundBlur:(value:string)=>void = app.setBackgroundBlur.bind(app);
 
-export { toggleEditor, loadBackgroundImage, setBackgroundColor, loadBackgroundVideo, setTintColor, setTintOpacity };
+export { toggleEditor, loadBackgroundImage, setBackgroundColor, loadBackgroundVideo, setTintColor, setTintOpacity, setBackgroundBlur };

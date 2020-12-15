@@ -7,6 +7,7 @@
     - [x] Image
     - [x] YouTube Video
     - [x] Tint
+    - [x] Blur
 - [ ] Copy
     - [ ] Heading
         - [ ] Visibility
