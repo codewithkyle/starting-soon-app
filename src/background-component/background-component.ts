@@ -33,7 +33,14 @@ export default class BackgroundComponent extends HTMLElement{
     private onPlayerReady(event){
         event.target.mute();
         event.target.playVideo();
+        event.target.setLoop(true);
         this.video = this.querySelector("iframe");
+    }
+
+    private handlePlayerChange(event){
+        if (event.data === 0){
+            event.target.playVideo();
+        }
     }
 
     public loadVideo(videoID:string):void{
@@ -54,7 +61,8 @@ export default class BackgroundComponent extends HTMLElement{
                 "disablekb": 1,
             },
             events: {
-                'onReady': this.onPlayerReady.bind(this),
+                "onReady": this.onPlayerReady.bind(this),
+                "onStateChange": this.handlePlayerChange.bind(this)
               }
         });
     }
