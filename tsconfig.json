@@ -6,9 +6,11 @@
             "ESNext"
         ],
         "module": "ES2020",
+        "moduleResolution": "Node",
         "outDir": "./compiled/js",
         "allowJs": true,
-        "checkJs": false
+        "checkJs": false,
+        "allowSyntheticDefaultImports": true
     },
     "include": [
         "./src",

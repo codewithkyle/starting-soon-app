@@ -18,6 +18,7 @@ editor-drawer{
         opacity: 0;
         visibility: hidden;
         transform: translateX(350px);
+        transition: all 0ms linear;
     }
 
     &[state="open"]{

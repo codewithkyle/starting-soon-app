@@ -1,0 +1,53 @@
+color-component{
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 100%;
+
+    input[type="color"]{
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    label{
+        width: 48px;
+        height: 48px;
+        border-radius: 0.25rem;
+        display: inline-block;
+        box-shadow: inset 0 0 3px rgba(0,0,0,0.15);
+        background-color: #000;
+        cursor: pointer;
+    }
+
+    input[type="text"]{
+        height: 36px;
+        margin-left: 1rem;
+        line-height: 36px;
+        padding: 0 0.5rem;
+        background-color: var(--grey-100);
+        border: 1px solid var(--grey-300);
+        border-radius: 0.25rem;
+        color: var(--grey-900);
+        transition: all 150ms var(--ease-in-out);
+        width: 100%;
+        flex: 1;
+
+        &::placeholder {
+            color: var(--grey-700);
+        }
+
+        &:hover {
+            border-color: var(--primary-400);
+        }
+
+        &:focus {
+            border-color: var(--primary-400);
+            box-shadow: 0 0 0 5px var(--primary-100);
+            background-color: var(--white);
+        }
+    }
+}
