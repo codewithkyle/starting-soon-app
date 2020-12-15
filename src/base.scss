@@ -9,6 +9,9 @@ main{
     height: 100vh;
     align-items: center;
     justify-content: center;
+    flex-flow: column wrap;
+    cursor: default;
+    user-select: none;
 
     h1{
         font-weight: var(--font-bold);
@@ -17,18 +20,29 @@ main{
         text-align: center;
         line-height: 1.375;
         color: var(--grey-800);
-        margin-bottom: 2rem;
         max-width: 66.66vw;
+        margin: 0 auto 2rem;
     }
 
     h2{
-        font-size: var(--font-medium);
         font-size: 36px;
         display: block;
         text-align: center;
         line-height: 1.375;
         color: var(--grey-700);
         max-width: 66.66vw;
+        margin: 0 auto;
+        font-weight: var(--font-medium);
+    }
+
+    h3{
+        font-size: 24px;
+        display: block;
+        text-align: center;
+        line-height: 1.375;
+        color: var(--grey-700);
+        max-width: 66.66vw;
+        margin: 0 auto;
     }
 }
 html[state="asleep"]{

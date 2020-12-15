@@ -2,18 +2,18 @@ actions-menu{
     position: fixed;
     top: 0;
     right: 0;
-    padding: 1rem 1.5rem 0 0;
+    padding: 1rem 1.25rem 0 0;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     z-index: 1000;
 
     html[state="awake"] & {
-        button{
+        [role="button"]{
             transition: all 75ms var(--ease-in-out), transform 150ms var(--ease-bounce);
             transform: translateY(0);
 
-            @for $i from 1 through 2 {
+            @for $i from 1 through 1 {
                 &:nth-child(#{$i}) {
                     transition-delay: $i * 75ms;
                 }
@@ -22,13 +22,13 @@ actions-menu{
     }
 
     html[state="asleep"] & {
-        button{
+        [role="button"]{
             transform: translateY(-200%);
             transition: all 0ms linear;
         }
     }
 
-    button{
+    [role="button"]{
         width: 48px;
         height: 48px;
         border-radius: 50%;

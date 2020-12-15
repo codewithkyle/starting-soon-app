@@ -6,7 +6,7 @@
             "ESNext"
         ],
         "module": "ES2020",
-        "outDir": "./public/js",
+        "outDir": "./compiled/js",
         "allowJs": true,
         "checkJs": false
     },

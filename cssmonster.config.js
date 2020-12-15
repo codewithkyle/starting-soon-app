@@ -1,4 +1,4 @@
 module.exports = {
-    outDir: "./public/css",
+    outDir: "./compiled/css",
     purge: false,
 }

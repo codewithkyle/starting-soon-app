@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "reset": "rm -rf ./public/js && rm -rf ./public/css",
-    "build": "npm run reset && npm-run-all build:*",
+    "build": "rm -rf ./compiled && mkdir ./compiled && npm-run-all build:* && rm -rf ./compiled",
     "build:css": "cssmonster",
     "build:js": "tsc",
+    "build:djinn": "djinnjs",
     "brixi": "brixi",
     "preview": "serve ./public",
     "bundle": "snowpack install"
@@ -11,6 +11,7 @@
   "dependencies": {
     "brixi": "^0.3.0",
     "cssmonster": "^0.3.1",
+    "djinnjs": "^0.3.1",
     "gh-pages": "^3.1.0",
     "npm-run-all": "^4.1.5",
     "serve": "^11.3.2",
