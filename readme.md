@@ -33,3 +33,9 @@
         - [ ] Font bold
         - [ ] Start/Stop
     - [ ] Logos
+- [ ] Renderer (build tool)
+- [ ] PWA
+    - [ ] Manifest
+    - [ ] Icons
+    - [ ] Service Worker
+- [ ] Autosave

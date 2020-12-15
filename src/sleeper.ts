@@ -14,7 +14,7 @@ class Sleeper{
 
     private captureInteraction:EventListener = ()=>{
         document.documentElement.setAttribute("state", "awake");
-        document.title = "✏️ Editor - Starting Soon";
+        document.title = "✏️ Starting Soon Editor";
         this.countdown = 10;
     }
 
