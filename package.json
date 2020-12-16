@@ -7,7 +7,9 @@
     "build:render": "node ./build/renderer.js",
     "brixi": "brixi",
     "preview": "serve ./public",
-    "bundle": "snowpack install"
+    "bundle": "snowpack install",
+    "predeploy": "npm run build",
+    "deploy": "node ./deploy.js"
   },
   "dependencies": {
     "brixi": "^0.3.0",
