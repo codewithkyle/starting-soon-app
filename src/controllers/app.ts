@@ -1,7 +1,7 @@
-import { DynamicBackground } from "modules/dynamic-background/dynamic-background";
+import { DynamicBackground } from "views/dynamic-background/dynamic-background";
 customElements.define("dynamic-background", DynamicBackground);
 
-import { EditorDrawer } from "modules/editor-drawer/editor-drawer";
+import { EditorDrawer } from "views/editor-drawer/editor-drawer";
 customElements.define("editor-drawer", EditorDrawer);
 
 class Application{
