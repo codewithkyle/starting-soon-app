@@ -40,3 +40,4 @@
     - [ ] Service Worker
 - [ ] Save settings
 - [ ] Reset settings
+- [ ] Fullscreen button

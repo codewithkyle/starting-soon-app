@@ -1,4 +1,4 @@
-import { loadBackgroundImage } from "../../../app";
+import { loadBackgroundImage } from "controllers/app";
 
 export class BackgroundImageButton extends HTMLElement{
     private input:HTMLInputElement;

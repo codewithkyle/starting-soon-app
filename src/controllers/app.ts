@@ -1,18 +1,18 @@
-import { BackgroundComponent } from "./background-component/background-component";
-customElements.define("background-component", BackgroundComponent);
+import { DynamicBackground } from "modules/dynamic-background/dynamic-background";
+customElements.define("dynamic-background", DynamicBackground);
 
-import { EditorDrawer } from "./editor-drawer/editor-drawer";
+import { EditorDrawer } from "modules/editor-drawer/editor-drawer";
 customElements.define("editor-drawer", EditorDrawer);
 
 class Application{
     private sponsorCarousel:HTMLElement;
     private editor:EditorDrawer;
-    private background:BackgroundComponent;
+    private background:DynamicBackground;
 
     constructor(){
         this.sponsorCarousel = document.body.querySelector("sponsor-carousel");
         this.editor = document.body.querySelector("editor-drawer");
-        this.background = document.body.querySelector("background-component");
+        this.background = document.body.querySelector("dynamic-background");
     }
 
     public toggleEditor(){

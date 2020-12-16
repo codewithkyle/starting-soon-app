@@ -1,5 +1,5 @@
 import { Component } from "djinnjs/component";
-import { updateElementStyle, updateText } from "../../app";
+import { updateElementStyle, updateText } from "controllers/app";
 
 type State = {
     visibility: boolean;

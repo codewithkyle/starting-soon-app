@@ -1,4 +1,4 @@
-export class BackgroundComponent extends HTMLElement{
+export class DynamicBackground extends HTMLElement{
     private image:HTMLImageElement;
     private video:HTMLElement;
     private tint:HTMLElement;

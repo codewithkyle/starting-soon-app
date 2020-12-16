@@ -1,4 +1,4 @@
-import { toggleEditor } from "./app";
+import { toggleEditor } from "controllers/app";
 
 export default class ToggleDrawerButton extends HTMLElement{
     private handleClick:EventListener = () => {

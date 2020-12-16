@@ -10,7 +10,15 @@
         "outDir": "./compiled/js",
         "allowJs": true,
         "checkJs": false,
-        "allowSyntheticDefaultImports": true
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "./src",
+		"paths": {
+            "controllers/*": ["controllers/*"],
+            "components/*": ["components/*"],
+			"lib/*": ["lib/*"],
+            "types/*": ["types/*"],
+            "modules/*": ["modules/*"]
+		}
     },
     "include": [
         "./src",

@@ -1,12 +1,12 @@
 import { Component } from "djinnjs/component";
 import { fetchCSS } from "djinnjs/fetch";
 import { html, render } from "lit-html";
-import { setBackgroundColor, loadBackgroundVideo, setTintColor, setTintOpacity, setBackgroundBlur } from "../../app";
+import { setBackgroundColor, loadBackgroundVideo, setTintColor, setTintOpacity, setBackgroundBlur } from "controllers/app";
 
 import { BackgroundImageButton } from "./background-image-button/background-image-button";
 customElements.define("background-image-button", BackgroundImageButton);
 
-import { ColorComponent } from "../../color-component/color-component";
+import { ColorComponent } from "components/color-component/color-component";
 customElements.define("color-component", ColorComponent);
 
 type State = {
@@ -47,6 +47,16 @@ export default class BackgroundSettings extends Component<State>{
                 break;
             case "dark":
                 setBackgroundColor("var(--neutral-900)");
+                break;
+            case "video":
+                let youtubePlayerScript:HTMLScriptElement = document.head.querySelector("#youtube-api");
+                if (!youtubePlayerScript){
+                    youtubePlayerScript = document.createElement("script");
+                    youtubePlayerScript.src = "https://www.youtube.com/iframe_api";
+                    youtubePlayerScript.id = "youtube-api";
+                    document.head.appendChild(youtubePlayerScript);
+                }
+                setBackgroundColor("var(--grey-100)");
                 break;
             default:
                 setBackgroundColor("var(--grey-100)");
