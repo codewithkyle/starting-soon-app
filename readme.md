@@ -25,17 +25,18 @@
     - [ ] Font size up/down
     - [ ] Font bold
     - [ ] Start/Stop
-- Sponsors
-    - [] Label
+- [ ] Sponsors
+    - [ ] Label
         - [ ] Visibility
         - [ ] Font color picker
         - [ ] Font size up/down
         - [ ] Font bold
         - [ ] Start/Stop
     - [ ] Logos
-- [ ] Renderer (build tool)
+- [x] Renderer (build tool)
 - [ ] PWA
     - [ ] Manifest
     - [ ] Icons
     - [ ] Service Worker
-- [ ] Autosave
+- [ ] Save settings
+- [ ] Reset settings

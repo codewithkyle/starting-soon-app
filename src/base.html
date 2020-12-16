@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html 
+    lang="en"
+    state="awake"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Starting Soon</title>
+    <meta name="description" content="Use this tool to quickly and easily create a starting soon countdown for your stream or conference.">
+
+    <link rel="icon" href="/favicon.svg?v=3">
+
+    <link href="/assets/normalize.css" rel="stylesheet">
+    <link href="/assets/brixi.css" rel="stylesheet">
+    <link href="/assets/base.css" rel="stylesheet">
+    <link href="/assets/tooltip.css" rel="stylesheet">
+    <link href="/assets/actions-menu.css" rel="stylesheet">
+    <link href="/assets/buttons.css" rel="stylesheet">
+    <link href="/assets/sponsor-carousel.css" rel="stylesheet">
+    <link href="/assets/editor-drawer.css" rel="stylesheet">
+
+    <script defer src="https://www.youtube.com/iframe_api"></script>
+    <script type="module" src="/assets/bootstrap.mjs"></script>
+    <script type="module" src="/assets/tooltipper.mjs"></script>
+    <script type="module" src="/assets/sleeper.mjs"></script>
+</head>
+<body>
+    <include src="./actions-menu">
+    <include src="./editor-drawer">
+    <main>
+        <div>
+            <h1 class="js-heading">Placeholder heading</h1>
+            <h2 class="js-subheading">Placeholder subheading</h2>
+            <sponsor-carousel style="display: none;" state="waiting">
+                <h3 class="js-sponsor-label">Sponsored by</h3>
+                <image-carousel></image-carousel>
+                <sponsor-upload-button>
+                    <input id="sponsor-upload" type="file" multiple accept="image/*">
+                    <label for="sponsor-upload" class="button -solid -primary -icon">
+                        <i class="icon">
+                            <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm65.18 216.01H224v80c0 8.84-7.16 16-16 16h-32c-8.84 0-16-7.16-16-16v-80H94.82c-14.28 0-21.41-17.29-11.27-27.36l96.42-95.7c6.65-6.61 17.39-6.61 24.04 0l96.42 95.7c10.15 10.07 3.03 27.36-11.25 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg>
+                        </i>
+                        Add sponsor logos
+                    </label>
+                </sponsor-upload-button>
+            </sponsor-carousel>
+        </div>
+    </main>
+    <include src="./background-component">
+</body>
+</html>

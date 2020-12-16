@@ -1,38 +1,4 @@
-<!DOCTYPE html>
-<html 
-    lang="en"
-    state="awake"
->
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Starting Soon</title>
-    <meta name="description" content="Use this tool to quickly and easily create a starting soon countdown for your stream or conference.">
-
-    <link rel="icon" href="/favicon.svg?v=3">
-
-    <link href="/assets/normalize.css" rel="stylesheet">
-    <link href="/assets/brixi.css" rel="stylesheet">
-    <link href="/assets/base.css" rel="stylesheet">
-    <link href="/assets/tooltip.css" rel="stylesheet">
-    <link href="/assets/actions-menu.css" rel="stylesheet">
-    <link href="/assets/buttons.css" rel="stylesheet">
-    <link href="/assets/sponsor-carousel.css" rel="stylesheet">
-    <link href="/assets/editor-drawer.css" rel="stylesheet">
-
-    <script defer src="https://www.youtube.com/iframe_api"></script>
-    <script type="module" src="/assets/bootstrap.mjs"></script>
-    <script type="module" src="/assets/tooltipper.mjs"></script>
-    <script type="module" src="/assets/sleeper.mjs"></script>
-</head>
-<body>
-    <actions-menu>
-    <toggle-drawer-button web-component role="button" tabindex="0" aria-label="Open editor" tooltip>
-        <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M493.255 56.236l-37.49-37.49c-24.993-24.993-65.515-24.994-90.51 0L12.838 371.162.151 485.346c-1.698 15.286 11.22 28.203 26.504 26.504l114.184-12.687 352.417-352.417c24.992-24.994 24.992-65.517-.001-90.51zM164.686 347.313c6.249 6.249 16.379 6.248 22.627 0L368 166.627l30.059 30.059L174 420.745V386h-48v-48H91.255l224.059-224.059L345.373 144 164.686 324.687c-6.249 6.248-6.249 16.378 0 22.626zm-38.539 121.285l-58.995 6.555-30.305-30.305 6.555-58.995L63.255 366H98v48h48v34.745l-19.853 19.853zm344.48-344.48l-49.941 49.941-82.745-82.745 49.941-49.941c12.505-12.505 32.748-12.507 45.255 0l37.49 37.49c12.506 12.506 12.507 32.747 0 45.255z"></path></svg>
-    </toggle-drawer-button>
-</actions-menu>
-    <editor-drawer loading="eager" state="closed">
+<editor-drawer loading="eager" state="closed">
     <div class="w-full block text-right mb-1">
         <toggle-drawer-button web-component role="button" tabindex="0" aria-label="Close editor" tooltip class="button -text -grey -icon-only -round">
             <i class="icon">
@@ -40,23 +6,7 @@
             </i>
         </toggle-drawer-button>
     </div>
-    <background-settings web-component loading="eager" class="w-full block mb-2">
-    <h4 class="block w-full border-b-1 border-b-solid border-b-grey-300 pb-1 mb-1 font-medium font-grey-800">Background Settings</h4>
-    <select-component web-component class="mb-1">
-        <label for="background-type">Background</label>
-        <select class="js-background-select" name="background-type" id="background-type">
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-            <option value="custom">Custom Color</option>
-            <option value="image">Image</option>
-            <option value="video">Video</option>
-        </select>
-        <i>
-            <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg>
-        </i>
-    </select-component>
-    <div class="js-container block w-full"></div>
-</background-settings>
+    <include src="./background-settings">
     <copy-editor css="copy-editor" web-component loading="eager" class="mb-2" data-lookup="js-heading">
         <textarea-component web-component css="textarea-component">
             <label for="textarea-component" class="block w-full border-b-1 border-b-solid border-b-grey-300 pb-1 mb-1 font-medium font-grey-800 font-base">
@@ -118,25 +68,3 @@
         </copy-editor-actions>
     </copy-editor>
 </editor-drawer>
-    <main>
-        <div>
-            <h1 class="js-heading">Placeholder heading</h1>
-            <h2 class="js-subheading">Placeholder subheading</h2>
-            <sponsor-carousel style="display: none;" state="waiting">
-                <h3 class="js-sponsor-label">Sponsored by</h3>
-                <image-carousel></image-carousel>
-                <sponsor-upload-button>
-                    <input id="sponsor-upload" type="file" multiple accept="image/*">
-                    <label for="sponsor-upload" class="button -solid -primary -icon">
-                        <i class="icon">
-                            <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm65.18 216.01H224v80c0 8.84-7.16 16-16 16h-32c-8.84 0-16-7.16-16-16v-80H94.82c-14.28 0-21.41-17.29-11.27-27.36l96.42-95.7c6.65-6.61 17.39-6.61 24.04 0l96.42 95.7c10.15 10.07 3.03 27.36-11.25 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg>
-                        </i>
-                        Add sponsor logos
-                    </label>
-                </sponsor-upload-button>
-            </sponsor-carousel>
-        </div>
-    </main>
-    <background-component css="background-component"></background-component>
-</body>
-</html>
