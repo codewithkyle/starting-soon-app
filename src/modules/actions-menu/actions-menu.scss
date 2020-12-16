@@ -13,7 +13,7 @@ actions-menu{
             transition: all 75ms var(--ease-in-out), transform 150ms var(--ease-bounce);
             transform: translateY(0);
 
-            @for $i from 1 through 1 {
+            @for $i from 1 through 2 {
                 &:nth-child(#{$i}) {
                     transition-delay: $i * 75ms;
                 }
@@ -36,7 +36,7 @@ actions-menu{
         user-select: none;
         display: inline-flex;
         justify-content: center;
-        align-content: center;
+        align-items: center;
         background-color: var(--white);
         color: var(--grey-700);
         box-shadow: var(--shadow-lg);
@@ -51,13 +51,40 @@ actions-menu{
         &:active{
             border-color: var(--primary-400);
             box-shadow: 0 0 0 5px var(--primary-100);
-        }        
+        }
+
+        &.screen{
+            &[state="fullscreen"]{
+                .exit{
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                .enter{
+                    opacity: 0;
+                    visibility: hidden;
+                }
+            }
+
+            svg{
+                position: absolute;
+
+                &.exit{
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                &.enter{
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
 
         svg{
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             display: inline-block;
-            margin: auto;
         }
     }
 }
