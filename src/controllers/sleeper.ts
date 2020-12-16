@@ -14,7 +14,11 @@ class Sleeper{
 
     private captureInteraction:EventListener = ()=>{
         document.documentElement.setAttribute("state", "awake");
-        document.title = "✏️ Starting Soon Editor";
+        if (document.documentElement.getAttribute("editor") === "open"){
+            document.title = "✏️ Editor";
+        } else {
+            document.title = "Starting Soon";
+        }
         this.countdown = 10;
     }
 
