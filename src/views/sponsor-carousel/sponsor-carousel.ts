@@ -90,6 +90,10 @@ export class SponsorCarousel extends HTMLElement{
         this.images = images;
     }
 
+    public setSpeed(value:number){
+        this.speedModifier = value;
+    }
+
     private handleResize:EventListener = () => {
         if (this.width !== window.innerWidth){
             this.width = window.innerWidth;

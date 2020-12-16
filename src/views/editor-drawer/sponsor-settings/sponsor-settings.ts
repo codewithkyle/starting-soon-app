@@ -1,4 +1,4 @@
-import { updateElementStyle } from "controllers/app";
+import { setCarouselSpeed, updateElementStyle } from "controllers/app";
 import { Component } from "djinnjs/component";
 import { fetchCSS } from "djinnjs/fetch";
 import { html, render } from "lit-html";
@@ -31,6 +31,10 @@ export default class SponsorSettings extends Component<State>{
         this.setState({visible: this.state.visible ? false : true});
     }
 
+    private updateCarouselSpeed(value:string){
+        setCarouselSpeed(parseInt(value));
+    }
+
     updated(){
         updateElementStyle("js-sponsor-carousel", "display", `${this.state.visible ? "block" : "none"}`);
     }
@@ -53,6 +57,10 @@ export default class SponsorSettings extends Component<State>{
                         Add sponsor logos
                     </label>
                 </sponsor-upload-button>
+                <range-component class="mb-1">
+                    <label for="carousel-speed">Carousel Speed</label>
+                    <input @change=${e => this.updateCarouselSpeed(e.currentTarget.value)} type="range" id="carousel-speed" min="1" max="100" step="1" value="100">
+                </range-component>
                 <copy-editor loading="eager" class="mb-2" data-lookup="js-sponsor-label">
                     <textarea-component web-component css="textarea-component">
                         <label for="sponsor-label-textarea-component" class="block w-full mb-1">Sponsor Label</label>

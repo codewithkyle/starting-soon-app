@@ -69,6 +69,10 @@ class Application{
     public loadSponsorLogos(images:Array<HTMLImageElement>){
         this.sponsorCarousel.renderImages(images);
     }
+
+    public setCarouselSpeed(value:number){
+        this.sponsorCarousel.setSpeed(value);
+    }
 }
 
 const app = new Application();
@@ -83,5 +87,6 @@ const setBackgroundBlur:(value:string)=>void = app.setBackgroundBlur.bind(app);
 const updateElementStyle:(className:string, key:string, value:string)=>void = app.updateElementStyle.bind(app);
 const updateText:(className:string, value:string)=>void = app.updateText.bind(app);
 const loadSponsorLogos:(images:Array<HTMLImageElement>)=>void = app.loadSponsorLogos.bind(app);
+const setCarouselSpeed:(speed:number)=>void = app.setCarouselSpeed.bind(app);
 
-export { toggleEditor, loadBackgroundImage, setBackgroundColor, loadBackgroundVideo, setTintColor, setTintOpacity, setBackgroundBlur, updateElementStyle, updateText, loadSponsorLogos };
+export { toggleEditor, loadBackgroundImage, setBackgroundColor, loadBackgroundVideo, setTintColor, setTintOpacity, setBackgroundBlur, updateElementStyle, updateText, loadSponsorLogos, setCarouselSpeed };
