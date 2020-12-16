@@ -2,12 +2,9 @@ import { Component } from "djinnjs/component";
 import { fetchCSS } from "djinnjs/fetch";
 import { html, render } from "lit-html";
 import { setBackgroundColor, loadBackgroundVideo, setTintColor, setTintOpacity, setBackgroundBlur } from "controllers/app";
-
+import { mount } from "utils/mount";
 import { BackgroundImageButton } from "./background-image-button/background-image-button";
-customElements.define("background-image-button", BackgroundImageButton);
-
 import { ColorComponent } from "components/color-component/color-component";
-customElements.define("color-component", ColorComponent);
 
 type State = {
     background: string;
@@ -106,6 +103,8 @@ export default class BackgroundSettings extends Component<State>{
     }
 
     connected(){
+        mount("color-component", ColorComponent);
+        mount("background-image-button", BackgroundImageButton);
         this.select.addEventListener("change", this.switchBackground);
     }
 

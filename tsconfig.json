@@ -17,7 +17,8 @@
             "components/*": ["components/*"],
 			"lib/*": ["lib/*"],
             "types/*": ["types/*"],
-            "views/*": ["views/*"]
+            "views/*": ["views/*"],
+            "utils/*": ["utils/*"]
 		}
     },
     "include": [

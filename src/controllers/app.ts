@@ -1,11 +1,11 @@
+import { mount } from "utils/mount";
 import { DynamicBackground } from "views/dynamic-background/dynamic-background";
-customElements.define("dynamic-background", DynamicBackground);
-
 import { EditorDrawer } from "views/editor-drawer/editor-drawer";
-customElements.define("editor-drawer", EditorDrawer);
-
 import { SponsorCarousel } from "views/sponsor-carousel/sponsor-carousel";
-customElements.define("sponsor-carousel", SponsorCarousel);
+
+mount("dynamic-background", DynamicBackground);
+mount("editor-drawer", EditorDrawer);
+mount("sponsor-carousel", SponsorCarousel);
 
 class Application{
     private sponsorCarousel:SponsorCarousel;

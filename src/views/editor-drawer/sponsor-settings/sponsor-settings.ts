@@ -2,9 +2,10 @@ import { setCarouselSpeed, updateElementStyle } from "controllers/app";
 import { Component } from "djinnjs/component";
 import { fetchCSS } from "djinnjs/fetch";
 import { html, render } from "lit-html";
+import { mount } from "utils/mount";
 
 import { SponsorUploadButton } from "./sponsor-upload-button/sponsor-upload-button";
-customElements.define("sponsor-upload-button", SponsorUploadButton);
+mount("sponsor-upload-button", SponsorUploadButton);
 
 type State = {
     visible: boolean;

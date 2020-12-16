@@ -36,7 +36,11 @@
         - [x] Font bold
         - [ ] Text shadow
     - [x] Logos
-- [x] Renderer (build tool)
+- [ ] Renderer (build tool)
+    - [x] Generate single `index.html` file
+    - [x] Custom `<include src="...">` element
+    - [x] Tree shaking
+    - [ ] Data injection
 - [ ] PWA
     - [ ] Manifest
     - [ ] Icons
