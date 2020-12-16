@@ -4,8 +4,11 @@ customElements.define("dynamic-background", DynamicBackground);
 import { EditorDrawer } from "views/editor-drawer/editor-drawer";
 customElements.define("editor-drawer", EditorDrawer);
 
+import { SponsorCarousel } from "views/sponsor-carousel/sponsor-carousel";
+customElements.define("sponsor-carousel", SponsorCarousel);
+
 class Application{
-    private sponsorCarousel:HTMLElement;
+    private sponsorCarousel:SponsorCarousel;
     private editor:EditorDrawer;
     private background:DynamicBackground;
 
@@ -62,6 +65,10 @@ class Application{
             el.innerText = value;
         }
     }
+
+    public loadSponsorLogos(images:Array<HTMLImageElement>){
+        this.sponsorCarousel.renderImages(images);
+    }
 }
 
 const app = new Application();
@@ -75,5 +82,6 @@ const setTintOpacity:(value:string)=>void = app.setTintOpacity.bind(app);
 const setBackgroundBlur:(value:string)=>void = app.setBackgroundBlur.bind(app);
 const updateElementStyle:(className:string, key:string, value:string)=>void = app.updateElementStyle.bind(app);
 const updateText:(className:string, value:string)=>void = app.updateText.bind(app);
+const loadSponsorLogos:(images:Array<HTMLImageElement>)=>void = app.loadSponsorLogos.bind(app);
 
-export { toggleEditor, loadBackgroundImage, setBackgroundColor, loadBackgroundVideo, setTintColor, setTintOpacity, setBackgroundBlur, updateElementStyle, updateText };
+export { toggleEditor, loadBackgroundImage, setBackgroundColor, loadBackgroundVideo, setTintColor, setTintOpacity, setBackgroundBlur, updateElementStyle, updateText, loadSponsorLogos };

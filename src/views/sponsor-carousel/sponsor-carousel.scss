@@ -1,49 +1,33 @@
 sponsor-carousel{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-flow: row nowrap;
-    width: 100%;
-
-    &[state="waiting"]{
-        image-carousel{
-            display: none;
-        }
-    }
-
-    &[state="running"]{
-        sponsor-upload-button{
-            display: none;
-        }
-    }
-
-    sponsor-upload-button{
-        display: inline-block;
-        position: relative;
-        margin-top: 2rem;
-
-        input{
-            opacity: 0;
-            visibility: hidden;
-            position: absolute;
-        }
-    }
+    width: 100vw;
 
     image-carousel{
         display: block;
         width: 100%;
+        height: 300px;
         overflow: hidden;
-        white-space: nowrap;
         position: relative;
-        margin-top: 4rem;
+        text-align: center;
+        white-space: nowrap;
+
+        &.force-fit{
+            img{
+                width: 250px;
+                height: 250px;
+                margin: 0 16px;
+            }
+        }
 
         img{
             width: 300px;
             height: 300px;
             object-fit: contain;
-            margin: 0 1rem;
+            margin: 0 32px;
             user-select: none;
             display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
     }
 }

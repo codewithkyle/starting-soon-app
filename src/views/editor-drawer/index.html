@@ -9,10 +9,10 @@
     <include src="./background-settings">
     <copy-editor css="copy-editor" web-component loading="eager" class="mb-2" data-lookup="js-heading">
         <textarea-component web-component css="textarea-component">
-            <label for="textarea-component" class="block w-full border-b-1 border-b-solid border-b-grey-300 pb-1 mb-1 font-medium font-grey-800 font-base">
+            <label for="heading-textarea-component" class="block w-full border-b-1 border-b-solid border-b-grey-300 pb-1 mb-1 font-medium font-grey-800 font-base">
                 Heading
             </label>
-            <textarea placeholder="Placeholder heading" id="textarea-component" rows="5" style="margin-right: 36px;width: calc(100% - 36px);border-radius: 0.25rem 0 0 0.25rem;"></textarea>
+            <textarea id="heading-textarea-component" rows="5" style="margin-right: 36px;width: calc(100% - 36px);border-radius: 0.25rem 0 0 0.25rem;">Placeholder heading</textarea>
         </textarea-component>
         <copy-editor-actions>
             <button state="hidden" class="js-toggle-visiblity-button visibility" aria-label="enable heading" tooltip="Enable">
@@ -39,10 +39,10 @@
     </copy-editor>
     <copy-editor css="copy-editor" web-component loading="eager" class="mb-2" data-lookup="js-subheading">
         <textarea-component web-component css="textarea-component">
-            <label for="textarea-component" class="block w-full border-b-1 border-b-solid border-b-grey-300 pb-1 mb-1 font-medium font-grey-800 font-base">
+            <label for="subheading-textarea-component" class="block w-full border-b-1 border-b-solid border-b-grey-300 pb-1 mb-1 font-medium font-grey-800 font-base">
                 Subheading
             </label>
-            <textarea placeholder="Placeholder heading" id="textarea-component" rows="5" style="margin-right: 36px;width: calc(100% - 36px);border-radius: 0.25rem 0 0 0.25rem;"></textarea>
+            <textarea id="subheading-textarea-component" rows="5" style="margin-right: 36px;width: calc(100% - 36px);border-radius: 0.25rem 0 0 0.25rem;">Placeholder subheading</textarea>
         </textarea-component>
         <copy-editor-actions>
             <button state="hidden" class="js-toggle-visiblity-button visibility" aria-label="enable heading" tooltip="Enable">
@@ -67,4 +67,5 @@
             </button>
         </copy-editor-actions>
     </copy-editor>
+    <include src="./sponsor-settings">
 </editor-drawer>

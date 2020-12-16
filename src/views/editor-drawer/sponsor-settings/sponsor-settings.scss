@@ -1,0 +1,29 @@
+sponsor-settings{
+    h4{
+        button{
+            &[state="visible"]{
+                .hide{
+                    opacity: 1;
+                    visibility: visible;
+                }
+                .show{
+                    opacity: 0;
+                    visibility: hidden;
+                }
+            }
+
+            .hide{
+                opacity: 0;
+                visibility: hidden;
+            }
+            .show{
+                opacity: 1;
+                visibility: visible;
+            }
+
+            svg{
+                position: absolute;
+            }
+        }
+    }
+}

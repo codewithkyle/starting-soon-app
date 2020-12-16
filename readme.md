@@ -8,31 +8,34 @@
     - [x] YouTube Video
     - [x] Tint
     - [x] Blur
-- [x] Copy
-    - [x] Heading
+- [ ] Copy
+    - [ ] Heading
         - [x] Visibility
         - [x] Font color picker
         - [x] Font size up/down
         - [x] Font bold
-    - [x] Subheading
+        - [ ] Text shadow
+    - [ ] Subheading
         - [x] Visibility
         - [x] Font color picker
         - [x] Font size up/down
         - [x] Font bold
+        - [ ] Text shadow
 - [ ] Timer
     - [ ] Visibility
     - [ ] Font color picker
     - [ ] Font size up/down
     - [ ] Font bold
     - [ ] Start/Stop
+    - [ ] Text shadow
 - [ ] Sponsors
     - [ ] Label
-        - [ ] Visibility
-        - [ ] Font color picker
-        - [ ] Font size up/down
-        - [ ] Font bold
-        - [ ] Start/Stop
-    - [ ] Logos
+        - [x] Visibility
+        - [x] Font color picker
+        - [x] Font size up/down
+        - [x] Font bold
+        - [ ] Text shadow
+    - [x] Logos
 - [x] Renderer (build tool)
 - [ ] PWA
     - [ ] Manifest

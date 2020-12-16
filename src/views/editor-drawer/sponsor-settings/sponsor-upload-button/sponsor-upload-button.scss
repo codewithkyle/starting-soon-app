@@ -1,0 +1,11 @@
+sponsor-upload-button{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+
+    input{
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+    }
+}

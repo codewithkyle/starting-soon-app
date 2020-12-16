@@ -1,4 +1,6 @@
-export default class SponsorUploadButton extends HTMLElement{
+import { loadSponsorLogos } from "controllers/app";
+
+export class SponsorUploadButton extends HTMLElement{
     private input: HTMLInputElement;
 
     constructor(){
@@ -15,9 +17,7 @@ export default class SponsorUploadButton extends HTMLElement{
                 img.draggable = false;
                 images.push(img);
             }
-            this.parentElement.setAttribute("state", "running");
-            // @ts-ignore
-            this.parentElement.renderImages(images);
+            loadSponsorLogos(images);
         } else {
             this.parentElement.setAttribute("state", "waiting");
         }
