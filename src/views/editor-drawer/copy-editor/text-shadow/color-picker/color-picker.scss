@@ -1,0 +1,40 @@
+color-picker{
+    position: relative;
+
+    input{
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    label{
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+
+        &:hover,
+        &:focus{
+            i{
+                transform: scale(1.15);
+            }
+        }
+        &:active{
+            i{
+                transform: scale(1);
+            }
+        }
+
+        i{
+            width: 16px;
+            height: 16px;
+            box-shadow: inset 0 0 3px rgba(0,0,0,0.15);
+            border-radius: 50%;
+            transition: all 150ms var(--ease-in-out);
+        }
+    }
+}

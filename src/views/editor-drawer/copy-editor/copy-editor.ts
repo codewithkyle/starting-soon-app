@@ -1,5 +1,7 @@
 import { Component } from "djinnjs/component";
 import { updateElementStyle, updateText } from "controllers/app";
+import { TextShadow } from "./text-shadow/text-shadow";
+import { mount } from "utils/mount";
 
 type State = {
     visibility: boolean;
@@ -16,6 +18,8 @@ export default class CopyEditor extends Component<State>{
     private decreaseButton:HTMLButtonElement;
     private colorInput:HTMLInputElement;
     private colorInputIcon:HTMLElement;
+    private shadowButton:HTMLButtonElement;
+    private shadowComponent:TextShadow;
 
     constructor(){
         super();
@@ -26,7 +30,9 @@ export default class CopyEditor extends Component<State>{
         this.increaseButton = this.querySelector(".js-enlarge-text-button");
         this.decreaseButton = this.querySelector(".js-shrink-text-button");
         this.colorInput = this.querySelector(".js-color-input");
-        this.colorInputIcon = this.querySelector(".js-color-input-icon")
+        this.colorInputIcon = this.querySelector(".js-color-input-icon");
+        this.shadowButton = this.querySelector(".js-shadow-button");
+        this.shadowComponent = this.querySelector("text-shadow");
 
         this.state = {
             visibility: false,
@@ -74,6 +80,10 @@ export default class CopyEditor extends Component<State>{
         this.colorInputIcon.style.backgroundColor = this.colorInput.value;
     }
 
+    private showTextShadow:EventListener = () => {
+        this.shadowComponent.enable();
+    }
+
     connected(){
         this.visibilityButton.addEventListener("click", this.toggleVisibility);
         this.textarea.addEventListener("keyup", this.updateText);
@@ -81,6 +91,8 @@ export default class CopyEditor extends Component<State>{
         this.increaseButton.addEventListener("click", this.increaseFontSize);
         this.decreaseButton.addEventListener("click", this.decreaseFontSize);
         this.colorInput.addEventListener("change", this.updateColor);
+        this.shadowButton.addEventListener("click", this.showTextShadow);
+        mount("text-shadow", TextShadow);
     }
 
     updated(){

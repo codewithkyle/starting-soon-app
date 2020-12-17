@@ -22,12 +22,10 @@ copy-editor{
         border: 1px solid var(--grey-300);
         border-bottom-width: 0;
         border-radius: 0.25rem 0.25rem 0 0;
-        overflow: hidden;
         display: flex;
         flex-flow: row nowrap;
 
-        button,
-        label{
+        .action{
             width: 36px;
             height: 36px;
             display: inline-flex;
@@ -87,7 +85,6 @@ copy-editor{
             }
 
             &.color{
-
                 &:hover,
                 &:focus{
                     i{
@@ -147,6 +144,11 @@ copy-editor{
                 height: 16px;
                 position: absolute;
                 transition: all 150ms var(--ease-in-out);
+
+                &.shadow{
+                    opacity: 0.3;
+                    transform: translate(2px, 2px);
+                }
             }
         }
     }
