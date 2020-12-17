@@ -18,6 +18,8 @@ class Application{
         if (document.documentElement.getAttribute("editor") === "open"){
             document.documentElement.setAttribute("editor", "closed");
             document.title = "Starting Soon";
+            // @ts-ignore
+            document.body.querySelectorAll("text-shadow").forEach(el => el.disable());
         }else{
             document.documentElement.setAttribute("editor", "open");
             document.title = "✏️ Editor";
