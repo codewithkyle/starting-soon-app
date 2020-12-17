@@ -51,6 +51,8 @@ actions-menu{
         &:active{
             border-color: var(--primary-400);
             box-shadow: 0 0 0 5px var(--primary-100);
+            transform: scale(0.87) translateY(0) !important;
+            transition: all 75ms var(--ease-in-out) !important;
         }
 
         &.screen{
