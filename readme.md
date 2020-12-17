@@ -8,19 +8,19 @@
     - [x] YouTube Video
     - [x] Tint
     - [x] Blur
-- [ ] Copy
-    - [ ] Heading
+- [x] Copy
+    - [x] Heading
         - [x] Visibility
         - [x] Font color picker
         - [x] Font size up/down
         - [x] Font bold
-        - [ ] Text shadow
-    - [ ] Subheading
+        - [x] Text shadow
+    - [x] Subheading
         - [x] Visibility
         - [x] Font color picker
         - [x] Font size up/down
         - [x] Font bold
-        - [ ] Text shadow
+        - [x] Text shadow
 - [ ] Timer
     - [ ] Visibility
     - [ ] Font color picker
@@ -28,13 +28,13 @@
     - [ ] Font bold
     - [ ] Start/Stop
     - [ ] Text shadow
-- [ ] Sponsors
-    - [ ] Label
+- [x] Sponsors
+    - [x] Label
         - [x] Visibility
         - [x] Font color picker
         - [x] Font size up/down
         - [x] Font bold
-        - [ ] Text shadow
+        - [x] Text shadow
     - [x] Logos
     - [x] Carousel speed control slider
 - [x] Renderer (build tool)
