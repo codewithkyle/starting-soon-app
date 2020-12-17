@@ -61,5 +61,6 @@ export class ShadowPosition extends HTMLElement{
         this.addEventListener("mousedown", this.handleMouseDown);
         document.body.addEventListener("mouseup", this.handleMouseUp);
         document.body.addEventListener("mousemove", this.handleMouseMove);
+        this.addEventListener("mouseleave", this.handleMouseUp);
     }
 }

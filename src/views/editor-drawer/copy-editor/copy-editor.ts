@@ -3,6 +3,7 @@ import { updateElementStyle, updateText } from "controllers/app";
 import { TextShadow } from "components/text-shadow/text-shadow";
 import { mount } from "utils/mount";
 import { fetchCSS } from "djinnjs/fetch";
+import { FontSelect } from "components/font-select/font-select";
 
 type State = {
     visibility: boolean;
@@ -21,6 +22,8 @@ export default class CopyEditor extends Component<State>{
     private colorInputIcon:HTMLElement;
     private shadowButton:HTMLButtonElement;
     private shadowComponent:TextShadow;
+    private fontButton:HTMLButtonElement;
+    private fontComponent:FontSelect;
 
     constructor(){
         super();
@@ -34,6 +37,8 @@ export default class CopyEditor extends Component<State>{
         this.colorInputIcon = this.querySelector(".js-color-input-icon");
         this.shadowButton = this.querySelector(".js-shadow-button");
         this.shadowComponent = this.querySelector("text-shadow");
+        this.fontButton = this.querySelector(".js-font-family-button");
+        this.fontComponent = this.querySelector("font-select");
 
         this.state = {
             visibility: false,
@@ -85,6 +90,10 @@ export default class CopyEditor extends Component<State>{
         this.shadowComponent.enable();
     }
 
+    private showFontSelect:EventListener = () => {
+        this.fontComponent.enable();
+    }
+
     connected(){
         this.visibilityButton.addEventListener("click", this.toggleVisibility);
         this.textarea.addEventListener("keyup", this.updateText);
@@ -93,8 +102,12 @@ export default class CopyEditor extends Component<State>{
         this.decreaseButton.addEventListener("click", this.decreaseFontSize);
         this.colorInput.addEventListener("change", this.updateColor);
         this.shadowButton.addEventListener("click", this.showTextShadow);
+        this.fontButton.addEventListener("click", this.showFontSelect);
+
         mount("text-shadow", TextShadow);
-        fetchCSS(["text-shadow", "shadow-position", "color-picker", "copy-editor"]);
+        mount("font-select", FontSelect);
+
+        fetchCSS(["text-shadow", "shadow-position", "color-picker", "copy-editor", "font-select"]);
     }
 
     updated(){

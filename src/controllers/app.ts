@@ -24,6 +24,8 @@ class Application{
             document.title = "Starting Soon";
             // @ts-ignore
             document.body.querySelectorAll("text-shadow").forEach(el => el.disable());
+            // @ts-ignore
+            document.body.querySelectorAll("font-select").forEach(el => el.disable());
         }else{
             document.documentElement.setAttribute("editor", "open");
             document.title = "✏️ Editor";

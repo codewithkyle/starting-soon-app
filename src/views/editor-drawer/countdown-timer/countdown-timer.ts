@@ -4,6 +4,7 @@ import { TextShadow } from "components/text-shadow/text-shadow";
 import { mount } from "utils/mount";
 import { fetchCSS } from "djinnjs/fetch";
 import { TimerComponet } from "./timer-component/timer-component";
+import { FontSelect } from "components/font-select/font-select";
 
 type State = {
     visibility: boolean;
@@ -23,6 +24,8 @@ export default class CountdownTimer extends Component<State>{
     private shadowButton:HTMLButtonElement;
     private shadowComponent:TextShadow;
     private playbackButton:HTMLButtonElement;
+    private fontButton:HTMLButtonElement;
+    private fontComponent:FontSelect;
 
     constructor(){
         super();
@@ -36,6 +39,8 @@ export default class CountdownTimer extends Component<State>{
         this.shadowButton = this.querySelector(".js-shadow-button");
         this.shadowComponent = this.querySelector("text-shadow");
         this.playbackButton = this.querySelector(".js-playback-button");
+        this.fontButton = this.querySelector(".js-font-family-button");
+        this.fontComponent = this.querySelector("font-select");
 
         this.state = {
             visibility: false,
@@ -93,6 +98,10 @@ export default class CountdownTimer extends Component<State>{
         this.setState({playing: this.state.playing ? false : true});
     }
 
+    private showFontSelect:EventListener = () => {
+        this.fontComponent.enable();
+    }
+
     connected(){
         this.visibilityButton.addEventListener("click", this.toggleVisibility);
         this.boldButton.addEventListener("click", this.toggleBold);
@@ -101,11 +110,13 @@ export default class CountdownTimer extends Component<State>{
         this.colorInput.addEventListener("change", this.updateColor);
         this.shadowButton.addEventListener("click", this.showTextShadow);
         this.playbackButton.addEventListener("click", this.togglePlayback);
+        this.fontButton.addEventListener("click", this.showFontSelect);
 
         mount("text-shadow", TextShadow);
         mount("timer-component", TimerComponet);
+        mount("font-select", FontSelect);
 
-        fetchCSS(["text-shadow", "shadow-position", "color-picker", "countdown-timer", "input-component"]);
+        fetchCSS(["text-shadow", "shadow-position", "color-picker", "countdown-timer", "input-component", "font-select"]);
     }
 
     updated(){
