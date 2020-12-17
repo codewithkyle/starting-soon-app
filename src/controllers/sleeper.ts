@@ -19,26 +19,32 @@ class Sleeper{
         } else {
             document.title = "Starting Soon";
         }
-        this.countdown = 10;
+        if (window.innerHeight === screen.height){
+            this.countdown = 5;
+        } else {
+            this.countdown = 10;
+        }
     }
 
     private loop(){
         const newTime = performance.now();
         const deltaTime = (newTime - this.time) / 1000;
         this.time = newTime;
-        this.countdown -= deltaTime;
-        if (this.countdown <= 0){
-            if (document.documentElement.getAttribute("state") === "awake"){
-                document.documentElement.setAttribute("state", "asleep");
-                document.title = "🔴 Live";
-                this.countdown = 1;
-            } else {
-                if (document.title === "🔴 Live"){
-                    document.title = "⚫ Live";
-                } else {
+        if (document.documentElement.getAttribute("editor") === "closed"){
+            this.countdown -= deltaTime;
+            if (this.countdown <= 0){
+                if (document.documentElement.getAttribute("state") === "awake"){
+                    document.documentElement.setAttribute("state", "asleep");
                     document.title = "🔴 Live";
+                    this.countdown = 1;
+                } else {
+                    if (document.title === "🔴 Live"){
+                        document.title = "⚫ Live";
+                    } else {
+                        document.title = "🔴 Live";
+                    }
+                    this.countdown = 1;
                 }
-                this.countdown = 1;
             }
         }
         window.requestAnimationFrame(this.loop.bind(this));

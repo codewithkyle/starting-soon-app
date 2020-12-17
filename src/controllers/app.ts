@@ -1,25 +1,27 @@
 import { mount } from "utils/mount";
 import { DynamicBackground } from "views/dynamic-background/dynamic-background";
-import { EditorDrawer } from "views/editor-drawer/editor-drawer";
 import { SponsorCarousel } from "views/sponsor-carousel/sponsor-carousel";
 
 mount("dynamic-background", DynamicBackground);
-mount("editor-drawer", EditorDrawer);
 mount("sponsor-carousel", SponsorCarousel);
 
 class Application{
     private sponsorCarousel:SponsorCarousel;
-    private editor:EditorDrawer;
     private background:DynamicBackground;
 
     constructor(){
         this.sponsorCarousel = document.body.querySelector("sponsor-carousel");
-        this.editor = document.body.querySelector("editor-drawer");
         this.background = document.body.querySelector("dynamic-background");
     }
 
     public toggleEditor(){
-        this.editor.toggle();
+        if (document.documentElement.getAttribute("editor") === "open"){
+            document.documentElement.setAttribute("editor", "closed");
+            document.title = "Starting Soon";
+        }else{
+            document.documentElement.setAttribute("editor", "open");
+            document.title = "✏️ Editor";
+        }
     }
 
     public loadBackgroundImage(url:string){

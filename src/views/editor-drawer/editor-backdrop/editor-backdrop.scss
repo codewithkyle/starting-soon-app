@@ -1,0 +1,15 @@
+editor-backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1900;
+    visibility: hidden;
+    pointer-events: none;
+
+    html[editor="open"] & {
+        visibility: visible;
+        pointer-events: all;
+    }
+}

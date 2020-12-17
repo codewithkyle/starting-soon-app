@@ -22,7 +22,7 @@ editor-drawer{
         transition: all 0ms linear;
     }
 
-    &[state="open"]{
+    html[editor="open"] & {
         opacity: 1;
         visibility: visible;
         transform: translateX(0);

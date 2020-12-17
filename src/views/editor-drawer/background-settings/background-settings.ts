@@ -129,7 +129,7 @@ export default class BackgroundSettings extends Component<State>{
                         <input @change=${e => this.updateColor(e.currentTarget.value)} id="custom-background-color" type="color" />
                         <div style="width:100%;flex:1;">
                             <label class="label" for="custom-color-hex">Background Color</label>
-                            <input @blur=${e => this.updateColor(e.currentTarget.value)} type="text" value="#000000" id="custom-color-hex">
+                            <input @input=${e => this.updateColor(e.currentTarget.value)} type="text" value="#000000" id="custom-color-hex">
                         </div>
                     </color-component>
                 `;
