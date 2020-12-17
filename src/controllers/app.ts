@@ -1,17 +1,21 @@
 import { mount } from "utils/mount";
 import { DynamicBackground } from "views/dynamic-background/dynamic-background";
 import { SponsorCarousel } from "views/sponsor-carousel/sponsor-carousel";
+import { TimerView } from "views/timer-view/timer-view";
 
 mount("dynamic-background", DynamicBackground);
 mount("sponsor-carousel", SponsorCarousel);
+mount("timer-view", TimerView);
 
 class Application{
     private sponsorCarousel:SponsorCarousel;
     private background:DynamicBackground;
+    private timer:TimerView;
 
     constructor(){
         this.sponsorCarousel = document.body.querySelector("sponsor-carousel");
         this.background = document.body.querySelector("dynamic-background");
+        this.timer = document.body.querySelector("timer-view");
     }
 
     public toggleEditor(){
@@ -77,6 +81,14 @@ class Application{
     public setCarouselSpeed(value:number){
         this.sponsorCarousel.setSpeed(value);
     }
+
+    public setTimer(seconds:number){
+        this.timer.setTime(seconds);
+    }
+
+    public toggleTimerCountdown(){
+        this.timer.toggle();
+    }
 }
 
 const app = new Application();
@@ -92,5 +104,7 @@ const updateElementStyle:(className:string, key:string, value:string)=>void = ap
 const updateText:(className:string, value:string)=>void = app.updateText.bind(app);
 const loadSponsorLogos:(images:Array<HTMLImageElement>)=>void = app.loadSponsorLogos.bind(app);
 const setCarouselSpeed:(speed:number)=>void = app.setCarouselSpeed.bind(app);
+const setTimer:(seconds:number)=>void = app.setTimer.bind(app);
+const toggleTimerCountdown:Function = app.toggleTimerCountdown.bind(app);
 
-export { toggleEditor, loadBackgroundImage, setBackgroundColor, loadBackgroundVideo, setTintColor, setTintOpacity, setBackgroundBlur, updateElementStyle, updateText, loadSponsorLogos, setCarouselSpeed };
+export { toggleEditor, loadBackgroundImage, setBackgroundColor, loadBackgroundVideo, setTintColor, setTintOpacity, setBackgroundBlur, updateElementStyle, updateText, loadSponsorLogos, setCarouselSpeed, setTimer, toggleTimerCountdown };

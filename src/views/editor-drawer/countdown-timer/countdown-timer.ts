@@ -1,19 +1,20 @@
 import { Component } from "djinnjs/component";
-import { updateElementStyle, updateText } from "controllers/app";
+import { updateElementStyle, setTimer, toggleTimerCountdown } from "controllers/app";
 import { TextShadow } from "components/text-shadow/text-shadow";
 import { mount } from "utils/mount";
 import { fetchCSS } from "djinnjs/fetch";
+import { TimerComponet } from "./timer-component/timer-component";
 
 type State = {
     visibility: boolean;
     bold: boolean;
     fontSize: number;
     color: string;
+    playing: boolean;
 };
 
-export default class CopyEditor extends Component<State>{
+export default class CountdownTimer extends Component<State>{
     private visibilityButton:HTMLButtonElement;
-    private textarea:HTMLTextAreaElement;
     private boldButton:HTMLButtonElement;
     private increaseButton:HTMLButtonElement;
     private decreaseButton:HTMLButtonElement;
@@ -21,12 +22,12 @@ export default class CopyEditor extends Component<State>{
     private colorInputIcon:HTMLElement;
     private shadowButton:HTMLButtonElement;
     private shadowComponent:TextShadow;
+    private playbackButton:HTMLButtonElement;
 
     constructor(){
         super();
         
         this.visibilityButton = this.querySelector(".js-toggle-visiblity-button");
-        this.textarea = this.querySelector("textarea");
         this.boldButton = this.querySelector(".js-toggle-bold-button");
         this.increaseButton = this.querySelector(".js-enlarge-text-button");
         this.decreaseButton = this.querySelector(".js-shrink-text-button");
@@ -34,12 +35,14 @@ export default class CopyEditor extends Component<State>{
         this.colorInputIcon = this.querySelector(".js-color-input-icon");
         this.shadowButton = this.querySelector(".js-shadow-button");
         this.shadowComponent = this.querySelector("text-shadow");
+        this.playbackButton = this.querySelector(".js-playback-button");
 
         this.state = {
             visibility: false,
             bold: false,
             fontSize: 1,
             color: "#000000",
+            playing: false,
         };
     }
 
@@ -58,10 +61,6 @@ export default class CopyEditor extends Component<State>{
             this.setState({ bold: true });
         }
     };
-
-    private updateText:EventListener = () => {
-        updateText(this.dataset.lookup, this.textarea.value);
-    }
 
     private increaseFontSize:EventListener = () => {
         this.setState({fontSize: this.state.fontSize + 0.25});
@@ -85,16 +84,28 @@ export default class CopyEditor extends Component<State>{
         this.shadowComponent.enable();
     }
 
+    public updateTime(value:number){
+        setTimer(value);
+    }
+
+    private togglePlayback:EventListener = () => {
+        toggleTimerCountdown();
+        this.setState({playing: this.state.playing ? false : true});
+    }
+
     connected(){
         this.visibilityButton.addEventListener("click", this.toggleVisibility);
-        this.textarea.addEventListener("keyup", this.updateText);
         this.boldButton.addEventListener("click", this.toggleBold);
         this.increaseButton.addEventListener("click", this.increaseFontSize);
         this.decreaseButton.addEventListener("click", this.decreaseFontSize);
         this.colorInput.addEventListener("change", this.updateColor);
         this.shadowButton.addEventListener("click", this.showTextShadow);
+        this.playbackButton.addEventListener("click", this.togglePlayback);
+
         mount("text-shadow", TextShadow);
-        fetchCSS(["text-shadow", "shadow-position", "color-picker", "copy-editor"]);
+        mount("timer-component", TimerComponet);
+
+        fetchCSS(["text-shadow", "shadow-position", "color-picker", "countdown-timer", "input-component"]);
     }
 
     updated(){
@@ -119,6 +130,14 @@ export default class CopyEditor extends Component<State>{
         }else{
             this.boldButton.setAttribute("state", "regular");
             this.boldButton.setAttribute("aria-label", "bold heading");
+        }
+
+        if (this.state.playing){
+            this.playbackButton.setAttribute("state", "playing");
+            this.playbackButton.setAttribute("aria-label", "stop countdown");
+        }else{
+            this.playbackButton.setAttribute("state", "paused");
+            this.playbackButton.setAttribute("aria-label", "start countdown");
         }
     }
 }

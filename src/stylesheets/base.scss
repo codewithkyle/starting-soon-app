@@ -14,9 +14,8 @@ main{
     cursor: default;
     user-select: none;
 
-    h1,
-    h2,
-    h3{
+    text-view,
+    timer-view{
         display: none;
         text-align: center;
         line-height: 1.375;

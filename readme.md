@@ -21,13 +21,13 @@
         - [x] Font size up/down
         - [x] Font bold
         - [x] Text shadow
-- [ ] Timer
-    - [ ] Visibility
-    - [ ] Font color picker
-    - [ ] Font size up/down
-    - [ ] Font bold
-    - [ ] Start/Stop
-    - [ ] Text shadow
+- [x] Timer
+    - [x] Visibility
+    - [x] Font color picker
+    - [x] Font size up/down
+    - [x] Font bold
+    - [x] Start/Stop
+    - [x] Text shadow
 - [x] Sponsors
     - [x] Label
         - [x] Visibility
@@ -42,6 +42,7 @@
     - [x] Custom `<include src="...">` element
     - [x] Tree shaking
     - [x] Data injection
+- [ ] Moveable text (vertical)
 - [ ] PWA
     - [ ] Manifest
     - [ ] Icons

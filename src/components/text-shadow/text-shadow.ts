@@ -3,6 +3,7 @@ import { ColorPicker } from "./color-picker/color-picker";
 import { mount } from "utils/mount";
 import { Component } from "djinnjs/component";
 import { updateElementStyle } from "controllers/app";
+import { RGB } from "types/color";
 
 type State = {
     position: {
@@ -12,12 +13,6 @@ type State = {
     color: string;
     blur: string;
     opacity: string;
-};
-
-type RGB = {
-    r:number;
-    g:number;
-    b:number;
 };
 
 export class TextShadow extends Component<State>{

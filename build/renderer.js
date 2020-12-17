@@ -38,7 +38,7 @@ function resolveIncludes(html, activeDir){
     if (includeElements?.length){
         for (let i = 0; i < includeElements.length; i++){
             let localPath = includeElements[i].replace(/(\<include.*src\=[\'\"])|[\'\"].*/g, "");
-            let snippetHTML = `<p class="font-danger-700">Missing file: '${localPath}'</p>`;
+            let snippetHTML;
             if (localPath){
                 if (new RegExp(/(\.html)$/).test(localPath)){
                     localPath = path.resolve(activeDir, localPath);
@@ -54,6 +54,9 @@ function resolveIncludes(html, activeDir){
                         newHTML = newHTML.replace(regex, dataset[key]);
                     }
                     snippetHTML = resolveIncludes(newHTML, newActivePath);
+                } else {
+                    console.log(`Missing file: ${localPath}`);
+                    process.exit(1);
                 }
             }
             output = output.replace(includeElements[i], snippetHTML);

@@ -1,0 +1,181 @@
+countdown-timer{
+    position: relative;
+    display: block;
+    width: 100%;
+
+    input{
+        margin-top: calc(36px + 1rem);
+
+        &:focus{
+            z-index: 10;
+        }
+    }
+
+    .actions{
+        position: absolute;
+        top: calc(35px + 1rem);
+        left: 0px;
+        height: 36px;
+        width: 100%;
+        background-color: var(--white);
+        border: 1px solid var(--grey-300);
+        border-bottom-width: 0;
+        border-radius: 0.25rem 0.25rem 0 0;
+        display: flex;
+        flex-flow: row nowrap;
+
+        .action{
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--grey-700);
+            transition: all 150ms var(--ease-in-out);
+            border-right: 1px solid var(--grey-300);
+            cursor: pointer;
+
+            &.visibility{
+                &[state="visible"]{
+                    .visible{
+                        opacity: 1;
+                        visibility: visible;
+                    }
+
+                    .hidden{
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+                }
+                
+                .visible{
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                .hidden{
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            &.weight{
+                &[state="bold"]{
+                    .bold{
+                        opacity: 1;
+                        visibility: visible;
+                    }
+    
+                    .regular{
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+                }
+
+                .bold{
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                .regular{
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            &.color{
+                &:hover,
+                &:focus{
+                    i{
+                        transform: scale(1.15);
+                    }
+                }
+                &:active{
+                    i{
+                        transform: scale(1);
+                    }
+                }
+
+                i{
+                    width: 12px;
+                    height: 12px;
+                    box-shadow: inset 0 0 3px rgba(0,0,0,0.15);
+                    border-radius: 50%;
+                    transition: all 150ms var(--ease-in-out);
+                }
+            }
+
+            &.playback{
+                &[state="playing"]{
+                    .pause{
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                    .play{
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+                }
+
+                .play{
+                    opacity: 1;
+                    visibility: visible;
+                }
+                .pause{
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                svg{
+                    width: 14px;
+                    height: 14px;
+                }
+            }
+
+            &:hover,
+            &:focus{
+                &::before{
+                    opacity: 0.6;
+                }
+
+                svg{
+                    transform: scale(1.15);
+                }
+            }
+
+            &:active{
+                &::before{
+                    opacity: 1;
+                }
+
+                svg{
+                    transform: scale(1);
+                }
+            }
+
+            &::before{
+                content: "";
+                display: inline-block;
+                position: absolute;
+                width: calc(100% - 0.25rem);
+                height: calc(100% - 0.25rem);
+                border-radius: 0.25rem;
+                background-color: var(--grey-200);
+                transition: all 150ms var(--ease-in-out);
+                opacity: 0;
+            }
+            
+            svg{
+                width: 16px;
+                height: 16px;
+                position: absolute;
+                transition: all 150ms var(--ease-in-out);
+
+                &.shadow{
+                    opacity: 0.3;
+                    transform: translate(2px, 2px);
+                }
+            }
+        }
+    }
+}
