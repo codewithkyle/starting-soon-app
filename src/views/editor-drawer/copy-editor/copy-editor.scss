@@ -4,8 +4,8 @@ copy-editor{
     width: 100%;
 
     textarea{
+        margin-top: calc(36px + 1rem);
         padding: 0.5rem 0.75rem !important;
-        height: 180px !important;
 
         &:focus{
             z-index: 10;
@@ -14,26 +14,28 @@ copy-editor{
 
     copy-editor-actions{
         position: absolute;
-        bottom: 0px;
-        right: 0px;
-        height: calc(100% - 34px - 1rem);
-        width: 36px;
+        top: calc(35px + 1rem);
+        left: 0px;
+        height: 36px;
+        width: 100%;
         background-color: var(--white);
         border: 1px solid var(--grey-300);
-        border-left-width: 0;
-        border-radius: 0 0.25rem 0.25rem 0;
+        border-bottom-width: 0;
+        border-radius: 0.25rem 0.25rem 0 0;
         overflow: hidden;
+        display: flex;
+        flex-flow: row nowrap;
 
         button,
         label{
             width: 36px;
             height: 36px;
-            display: flex;
+            display: inline-flex;
             justify-content: center;
             align-items: center;
             color: var(--grey-700);
             transition: all 150ms var(--ease-in-out);
-            border-bottom: 1px solid var(--grey-300);
+            border-right: 1px solid var(--grey-300);
             cursor: pointer;
 
             &.visibility{
@@ -109,17 +111,42 @@ copy-editor{
 
             &:hover,
             &:focus{
-                color: var(--primary-700);
+                &::before{
+                    opacity: 0.6;
+                }
+
+                svg{
+                    transform: scale(1.15);
+                }
             }
 
             &:active{
-                color: var(--primary-800);
+                &::before{
+                    opacity: 1;
+                }
+
+                svg{
+                    transform: scale(1);
+                }
+            }
+
+            &::before{
+                content: "";
+                display: inline-block;
+                position: absolute;
+                width: calc(100% - 0.25rem);
+                height: calc(100% - 0.25rem);
+                border-radius: 0.25rem;
+                background-color: var(--grey-200);
+                transition: all 150ms var(--ease-in-out);
+                opacity: 0;
             }
             
             svg{
-                width: 18px;
-                height: 18px;
+                width: 16px;
+                height: 16px;
                 position: absolute;
+                transition: all 150ms var(--ease-in-out);
             }
         }
     }
