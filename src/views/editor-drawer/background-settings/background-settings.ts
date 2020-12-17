@@ -4,7 +4,7 @@ import { html, render } from "lit-html";
 import { setBackgroundColor, loadBackgroundVideo, setTintColor, setTintOpacity, setBackgroundBlur } from "controllers/app";
 import { mount } from "utils/mount";
 import { BackgroundImageButton } from "./background-image-button/background-image-button";
-import { ColorComponent } from "components/color-component/color-component";
+import { BackgroundColorComponent } from "./background-color-component/background-color-component";
 
 type State = {
     background: string;
@@ -103,7 +103,7 @@ export default class BackgroundSettings extends Component<State>{
     }
 
     connected(){
-        mount("color-component", ColorComponent);
+        mount("background-color-component", BackgroundColorComponent);
         mount("background-image-button", BackgroundImageButton);
         this.select.addEventListener("change", this.switchBackground);
     }
@@ -124,14 +124,14 @@ export default class BackgroundSettings extends Component<State>{
             case "custom":
                 setBackgroundColor("#000");
                 view = html`
-                    <color-component>
+                    <background-color-component>
                         <label class="sample" for="custom-background-color"></label>
                         <input @change=${e => this.updateColor(e.currentTarget.value)} id="custom-background-color" type="color" />
                         <div style="width:100%;flex:1;">
                             <label class="label" for="custom-color-hex">Background Color</label>
                             <input @input=${e => this.updateColor(e.currentTarget.value)} type="text" value="#000000" id="custom-color-hex">
                         </div>
-                    </color-component>
+                    </background-color-component>
                 `;
                 break;
             case "image":

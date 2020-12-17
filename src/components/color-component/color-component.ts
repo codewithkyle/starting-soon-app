@@ -1,7 +1,7 @@
 export class ColorComponent extends HTMLElement{
-    private input:HTMLInputElement;
-    private label:HTMLLabelElement;
-    private textInput:HTMLInputElement;
+    public input:HTMLInputElement;
+    public label:HTMLLabelElement;
+    public textInput:HTMLInputElement;
 
     constructor(){
         super();
@@ -10,22 +10,22 @@ export class ColorComponent extends HTMLElement{
         this.textInput = this.querySelector(`input[type="text"]`);
     }
 
-    private handleColor:EventListener = () => {
+    public handleColor:EventListener = () => {
         this.label.style.backgroundColor = this.input.value;
         this.textInput.value = this.input.value;
     }
 
-    private handleTextColor:EventListener = () => {
+    public handleTextColor:EventListener = () => {
         const value = `${this.textInput.value.replace("#", "")}`;
         this.input.value = `#${value}`;
         this.label.style.backgroundColor = `#${value}`;
     }
 
-    private focusInput:EventListener = () => {
+    public focusInput:EventListener = () => {
         this.textInput.value = this.textInput.value.replace("#", "");
     }
 
-    private blurInput:EventListener = () => {
+    public blurInput:EventListener = () => {
         this.textInput.value = `#${this.textInput.value.replace("#", "")}`;
         this.input.value = this.textInput.value;
         this.label.style.backgroundColor = this.textInput.value;

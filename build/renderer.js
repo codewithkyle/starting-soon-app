@@ -48,7 +48,7 @@ function resolveIncludes(html, activeDir){
                 if (fs.existsSync(localPath)){
                     const newActivePath = path.resolve(activeDir, `${localPath.replace(/(?!.*[\/\\]).*/, "")}`);
                     let newHTML = fs.readFileSync(localPath).toString();
-                    const dataset = parseDataset(html);
+                    const dataset = parseDataset(includeElements[i]);
                     for (const key in dataset){
                         const regex = new RegExp(`\\{[\\s+]?${key}[\\s+]?\\}`, "g");
                         newHTML = newHTML.replace(regex, dataset[key]);
