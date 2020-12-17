@@ -36,6 +36,7 @@
         - [x] Font bold
         - [ ] Text shadow
     - [x] Logos
+    - [x] Carousel speed control slider
 - [ ] Renderer (build tool)
     - [x] Generate single `index.html` file
     - [x] Custom `<include src="...">` element
