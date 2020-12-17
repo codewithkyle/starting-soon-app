@@ -13,14 +13,7 @@ main{
     flex-flow: column wrap;
     cursor: default;
     user-select: none;
-
-    text-view,
-    timer-view{
-        display: none;
-        text-align: center;
-        line-height: 1.375;
-        width: 100%;
-    }
+    overflow: hidden;
 }
 html[state="asleep"]{
     *{

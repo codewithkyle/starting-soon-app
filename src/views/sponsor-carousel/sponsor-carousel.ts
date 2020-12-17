@@ -1,4 +1,6 @@
-export class SponsorCarousel extends HTMLElement{
+import { Draggable } from "components/draggable";
+
+export class SponsorCarousel extends Draggable{
     private container: HTMLElement;
     private images:Array<HTMLImageElement>;
     private time:number;
@@ -101,8 +103,7 @@ export class SponsorCarousel extends HTMLElement{
         }
     }
 
-    connectedCallback(){
-
-        window.addEventListener("resize", this.handleResize);
-    }
+    // connectedCallback(){
+    //     window.addEventListener("resize", this.handleResize);
+    // }
 }

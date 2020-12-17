@@ -1,4 +1,6 @@
-export class TimerView extends HTMLElement{
+import { Draggable } from "components/draggable";
+
+export class TimerView extends Draggable{
     private countdownBase:number;
     private countdown:number;
     private time:number;

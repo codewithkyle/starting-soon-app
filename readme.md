@@ -42,7 +42,7 @@
     - [x] Custom `<include src="...">` element
     - [x] Tree shaking
     - [x] Data injection
-- [ ] Moveable text (vertical)
+- [x] Moveable text (vertical)
 - [x] Font switcher
 - [ ] PWA
     - [ ] Manifest
