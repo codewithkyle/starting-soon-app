@@ -16,22 +16,36 @@ export class ShadowPosition extends HTMLElement{
         this.pos4 = 0;
     }
 
-    private handleMouseDown:EventListener = (e:MouseEvent) => {
+    private handleMouseDown:EventListener = (e:MouseEvent|TouchEvent) => {
         this.moving = true;
-        this.pos3 = e.clientX;
-        this.pos4 = e.clientY;
+        if (e instanceof MouseEvent){
+            this.pos3 = e.clientX;
+            this.pos4 = e.clientY;
+        } else if (e instanceof TouchEvent){
+            this.pos3 = e.touches[0].clientX;
+            this.pos4 = e.touches[0].clientY;
+        }
     }
 
     private handleMouseUp:EventListener = () => {
         this.moving = false;
     }
 
-    private handleMouseMove:EventListener = (e:MouseEvent) => {
+    private handleMouseMove:EventListener = (e:MouseEvent|TouchEvent) => {
         if (this.moving){
-            this.pos1 = this.pos3 - e.clientX;
-            this.pos2 = this.pos4 - e.clientY;
-            this.pos3 = e.clientX;
-            this.pos4 = e.clientY;
+            if (e instanceof MouseEvent){
+                this.pos1 = this.pos3 - e.clientX;
+                this.pos2 = this.pos4 - e.clientY;
+                this.pos3 = e.clientX;
+                this.pos4 = e.clientY;
+            }else if (e instanceof TouchEvent){
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                this.pos1 = this.pos3 - e.touches[0].clientX;
+                this.pos2 = this.pos4 - e.touches[0].clientY;
+                this.pos3 = e.touches[0].clientX;
+                this.pos4 = e.touches[0].clientY;
+            }
 
             let top = parseInt(this.handle.dataset.top) - this.pos2;
             if (top < 0){
@@ -59,8 +73,14 @@ export class ShadowPosition extends HTMLElement{
 
     connectedCallback(){
         this.addEventListener("mousedown", this.handleMouseDown);
-        document.body.addEventListener("mouseup", this.handleMouseUp);
-        document.body.addEventListener("mousemove", this.handleMouseMove);
-        this.addEventListener("mouseleave", this.handleMouseUp);
+        window.addEventListener("mouseup", this.handleMouseUp);
+        window.addEventListener("mousemove", this.handleMouseMove);
+        window.addEventListener("mouseleave", this.handleMouseMove);
+        window.addEventListener("mouseout", this.handleMouseMove);
+        
+        this.addEventListener("touchstart", this.handleMouseDown);
+        window.addEventListener("touchend", this.handleMouseUp);
+        window.addEventListener("touchmove", this.handleMouseMove);
+        window.addEventListener("touchcancel", this.handleMouseMove);
     }
 }

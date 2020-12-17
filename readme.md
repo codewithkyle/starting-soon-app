@@ -44,7 +44,7 @@
     - [x] Data injection
 - [x] Moveable text (vertical)
 - [x] Font switcher
-- [ ] Touch support (draggable components)
+- [x] Touch support (draggable components)
 - [x] Minimum device size warning
 - [ ] PWA
     - [ ] Manifest

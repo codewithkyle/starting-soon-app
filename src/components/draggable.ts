@@ -14,22 +14,34 @@ export class Draggable extends HTMLElement{
         this.pos4 = 0;
     }
 
-    private handleMouseDown:EventListener = (e:MouseEvent) => {
+    private handleMouseDown:EventListener = (e:MouseEvent|TouchEvent) => {
         this.moving = true;
-        this.pos3 = e.clientX;
-        this.pos4 = e.clientY;
+        if (e instanceof MouseEvent){
+            this.pos3 = e.clientX;
+            this.pos4 = e.clientY;
+        } else if (e instanceof TouchEvent){
+            this.pos3 = e.touches[0].clientX;
+            this.pos4 = e.touches[0].clientY;
+        }
     }
 
     private handleMouseUp:EventListener = () => {
         this.moving = false;
     }
 
-    private handleMouseMove:EventListener = (e:MouseEvent) => {
+    private handleMouseMove:EventListener = (e:MouseEvent|TouchEvent) => {
         if (this.moving){
-            this.pos1 = this.pos3 - e.clientX;
-            this.pos2 = this.pos4 - e.clientY;
-            this.pos3 = e.clientX;
-            this.pos4 = e.clientY;
+            if (e instanceof MouseEvent){
+                this.pos1 = this.pos3 - e.clientX;
+                this.pos2 = this.pos4 - e.clientY;
+                this.pos3 = e.clientX;
+                this.pos4 = e.clientY;
+            }else if (e instanceof TouchEvent){
+                this.pos1 = this.pos3 - e.touches[0].clientX;
+                this.pos2 = this.pos4 - e.touches[0].clientY;
+                this.pos3 = e.touches[0].clientX;
+                this.pos4 = e.touches[0].clientY;
+            }
 
             let top = parseInt(this.dataset.top) - this.pos2;
 
@@ -58,6 +70,12 @@ export class Draggable extends HTMLElement{
         window.addEventListener("mousemove", this.handleMouseMove);
         window.addEventListener("mouseleave", this.handleMouseMove);
         window.addEventListener("mouseout", this.handleMouseMove);
+        
+        this.addEventListener("touchstart", this.handleMouseDown);
+        window.addEventListener("touchend", this.handleMouseUp);
+        window.addEventListener("touchmove", this.handleMouseMove);
+        window.addEventListener("touchcancel", this.handleMouseMove);
+
         this.dataset.top = "0";
         this.dataset.left = "0";
     }
