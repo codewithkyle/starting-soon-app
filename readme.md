@@ -46,10 +46,10 @@
 - [x] Font switcher
 - [x] Touch support (draggable components)
 - [x] Minimum device size warning
-- [ ] PWA
-    - [ ] Manifest
-    - [ ] Icons
-    - [ ] Service Worker
+- [x] PWA
+    - [x] Manifest
+    - [x] Icons
+    - [x] Service Worker
 - [ ] Save settings
 - [ ] Reset settings
 - [x] Fullscreen button

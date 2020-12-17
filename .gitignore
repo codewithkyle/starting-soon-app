@@ -4,3 +4,4 @@ public/assets
 web_modules
 compiled
 public/index.html
+public/service-worker-assets.js

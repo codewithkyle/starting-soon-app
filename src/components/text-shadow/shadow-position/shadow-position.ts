@@ -39,8 +39,6 @@ export class ShadowPosition extends HTMLElement{
                 this.pos3 = e.clientX;
                 this.pos4 = e.clientY;
             }else if (e instanceof TouchEvent){
-                e.preventDefault();
-                e.stopImmediatePropagation();
                 this.pos1 = this.pos3 - e.touches[0].clientX;
                 this.pos2 = this.pos4 - e.touches[0].clientY;
                 this.pos3 = e.touches[0].clientX;
