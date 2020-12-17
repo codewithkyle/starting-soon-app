@@ -42,9 +42,15 @@ function resolveIncludes(element, activeDir){
             }
             if (fs.existsSync(localPath)){
                 const newActivePath = path.resolve(activeDir, `${localPath.replace(/(?!.*[\/\\]).*/, "")}`);
-                const tempDOM = new JSDOM(fs.readFileSync(localPath).toString());
+                let html = fs.readFileSync(localPath).toString();
+                for (const key in includeElements[i].dataset){
+                    const regex = new RegExp(`\\{[\\s+]?${key}[\\s+]?\\}`, "g");
+                    html = html.replace(regex, includeElements[i].dataset[key]);
+                }
+                const tempDOM = new JSDOM(html);
                 const newElements = Array.from(tempDOM.window.document.documentElement.querySelectorAll("body > *"));
                 for (let i = 0; i < newElements.length; i++){
+
                     const newElement = resolveIncludes(newElements[i], newActivePath);
                     includeElements[i].insertAdjacentElement("beforebegin", newElement);
                 }

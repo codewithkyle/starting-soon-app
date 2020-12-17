@@ -37,11 +37,11 @@
         - [ ] Text shadow
     - [x] Logos
     - [x] Carousel speed control slider
-- [ ] Renderer (build tool)
+- [x] Renderer (build tool)
     - [x] Generate single `index.html` file
     - [x] Custom `<include src="...">` element
     - [x] Tree shaking
-    - [ ] Data injection
+    - [x] Data injection
 - [ ] PWA
     - [ ] Manifest
     - [ ] Icons
