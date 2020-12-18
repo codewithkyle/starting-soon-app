@@ -13,7 +13,7 @@ ghPages.publish(
             email: EMAIL,
         },
         repo: "https://" + process.env.ACCESS_TOKEN + "@github.com/" + USERNAME + "/" + PROJECT + ".git",
-        silent: true,
+        silent: false,
     },
     (error) => {
         if (error) {
