@@ -1,0 +1,78 @@
+{
+    "short_name": "Starting Soon Screen",
+    "name": "Starting Soon Screen Editor",
+    "description": "Use this tool to quickly and easily create a starting soon countdown screen for your stream or conference.",
+    "background_color": "#F7FAFC",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#38B2AC",
+    "start_url": "/",
+    "icons": [
+        {
+          "src": "/icons/maskable/icon-128.png",
+          "sizes": "128x128",
+          "type": "image/png",
+          "purpose": "maskable"
+        },
+        {
+          "src": "/icons/maskable/icon-144.png",
+          "sizes": "144x144",
+          "type": "image/png",
+          "purpose": "maskable"
+        },
+        {
+          "src": "/icons/maskable/icon-152.png",
+          "sizes": "152x152",
+          "type": "image/png",
+          "purpose": "maskable"
+        },
+        {
+          "src": "/icons/maskable/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png",
+          "purpose": "maskable"
+        },
+        {
+          "src": "/icons/maskable/icon-256.png",
+          "sizes": "256x256",
+          "type": "image/png",
+          "purpose": "maskable"
+        },
+        {
+          "src": "/icons/maskable/icon-512.png",
+          "sizes": "512x512",
+          "type": "image/png",
+          "purpose": "maskable"
+        },
+        {
+          "src": "/icons/icon-128.png",
+          "sizes": "128x128",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/icon-144.png",
+          "sizes": "144x144",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/icon-152.png",
+          "sizes": "152x152",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/icon-256.png",
+          "sizes": "256x256",
+          "type": "image/png"
+        },
+        {
+          "src": "/icons/icon-512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ]
+  }
