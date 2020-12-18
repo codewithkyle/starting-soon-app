@@ -11,7 +11,7 @@
     "preview": "serve ./public",
     "bundle": "snowpack install",
     "predeploy": "npm run build",
-    "deploy": "node ./deploy.js"
+    "deploy": "node ./build/deploy.js"
   },
   "dependencies": {
     "brixi": "^0.3.0",
